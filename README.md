@@ -3,7 +3,7 @@ ReactJS final course project @Softuni - June 2024
 
 ## 1. Initialize Project
 - [x] Initialize git repo
-- [] Add softuni practice server
+- [x] Add softuni practice server
 - [x] Add base vite react project as client
 - [x] CleanUp client
 - [] Add project resources
