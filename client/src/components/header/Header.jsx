@@ -28,7 +28,7 @@ export default function Example() {
                         About us
                     </a>
                     <a href="#" className="text-sm font-semibold hover:text-blue-800 leading-6 text-white">
-                        Create
+                        Create book
                     </a>
                     <a href="#" className="text-sm font-semibold hover:text-blue-800 leading-6 text-white">
                         Company
