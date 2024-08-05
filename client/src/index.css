@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-hero-pattern{
+    background-repeat: no-repeat;
+}
+
