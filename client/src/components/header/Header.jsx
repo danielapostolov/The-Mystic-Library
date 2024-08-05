@@ -22,13 +22,13 @@ export default function Example() {
                     <Link to="/" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
                         Home
                     </Link>
-                    <Link to="#" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
+                    <Link to="/catalog" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
                         Catalog
                     </Link>
-                    <Link to="#" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
+                    <Link to="/about" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
                         About us
                     </Link>
-                    <Link to="#" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
+                    <Link to="/" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
                         Create book
                     </Link>
                     
@@ -42,7 +42,7 @@ export default function Example() {
                         Log in
                     </Link>
 
-                    <Link to="/register" className="rounded-md  hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
+                    <Link to="/sign-up" className="rounded-md  hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
                         Sign up
                     </Link>
                 </div>
