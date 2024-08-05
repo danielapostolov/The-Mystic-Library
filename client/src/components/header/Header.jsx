@@ -1,47 +1,50 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Example() {
 
     return (
-        <header className="bg-gray-900">
+        <header className="">
             <nav aria-label="Global" className=" mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
 
                 {/* <------> Logo <-----> */}
                 <div className="flex lg:flex-1">
-                    <a href="/" className="-m-1.5 p-1.5">
+                    <Link to="/" className="-m-1.5 p-1.5">
                         <span className=" text-lg float-right font-bold ps-2 pt-0 text-white">The Mystic Library</span>
                         <img alt="Logo" src="https://i.postimg.cc/N0Q0bhLP/logo.png" className="h-8 w-auto" />
-                    </a>
+                    </Link>
                 </div>
 
 
                 <div className="hidden lg:flex lg:gap-x-12">
 
 
-                    <a href="/" className="text-sm font-semibold hover:text-blue-800 leading-6 text-white">
+                    <Link to="/" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
                         Home
-                    </a>
-                    <a href="#" className="text-sm font-semibold hover:text-blue-800 leading-6 text-white">
+                    </Link>
+                    <Link to="#" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
                         Catalog
-                    </a>
-                    <a href="#" className="text-sm font-semibold hover:text-blue-800 leading-6 text-white">
+                    </Link>
+                    <Link to="#" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
                         About us
-                    </a>
-                    <a href="#" className="text-sm font-semibold hover:text-blue-800 leading-6 text-white">
+                    </Link>
+                    <Link to="#" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
                         Create book
-                    </a>
-                    <a href="#" className="text-sm font-semibold hover:text-blue-800 leading-6 text-white">
-                        Company
-                    </a>
+                    </Link>
+                    
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-4">
-                    <a href="/register" className="text-sm font-semibold leading-6 text-white ">
-                        Log in
-                    </a>
+                    <Link to="/" className="rounded-md  hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
+                        Log out
+                    </Link>
 
-                    <a href="/login" className="rounded-md  text-sm font-semibold leading-6 text-white bg-blue-700">
-                        Sign up 
-                    </a>
+                    <Link to="/login" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white ">
+                        Log in
+                    </Link>
+
+                    <Link to="/register" className="rounded-md  hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
+                        Sign up
+                    </Link>
                 </div>
             </nav>
 

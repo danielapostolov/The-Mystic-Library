@@ -5,7 +5,7 @@ module.exports = withMT({
   theme: {
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('./assets/image1.png')",
+        'hero-pattern': "url('./assets/background-image-blurred.png')",
       }
     },
   },
