@@ -1,0 +1,9 @@
+"title": "Moby-Dick",
+"author": "Herman Melville",
+"genre": "Adventure Fiction",
+"bookImage": "https://m.media-amazon.com/images/I/91MV+NOmt7L._AC_UF1000,1000_QL80_.jpg",
+"authorImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Herman_Melville.jpg/800px-Herman_Melville.jpg",
+"year": "1851",
+"publisher": "Harper & Brothers",
+"description": "The saga of Captain Ahab and his relentless pursuit of Moby Dick, the great white whale."
+

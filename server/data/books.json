@@ -1,0 +1,47 @@
+{
+    "d0fb0058-8b7b-4523-9a5f-10def55df940": {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "genre": "A Novel",
+        "bookImage": "https://m.media-amazon.com/images/I/81QuEGw8VPL._AC_UF1000,1000_QL80_.jpg",
+        "authorImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/F_Scott_Fitzgerald_1921.jpg/800px-F_Scott_Fitzgerald_1921.jpg",
+        "year": "1925",
+        "publisher": "Charles Scribner's Sons",
+        "description": "The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island.",
+        "_id": "d0fb0058-8b7b-4523-9a5f-10def55df940"
+    },
+    "1230e8b9-dfd1-40ea-9b70-a027cd2d4f4e": {
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "genre": "Fantasy",
+        "bookImage": "https://m.media-amazon.com/images/I/712cDO7d73L._AC_UF1000,1000_QL80_.jpg",
+        "authorImage": "https://cdn.britannica.com/65/66765-050-63A945A7/JRR-Tolkien.jpg",
+        "year": "1937",
+        "publisher": "George Allen & Unwin",
+        "description": "A fantasy novel and children’s book by J. R. R. Tolkien. It was published on 21 September 1937 to wide critical acclaim.",
+        "_id": "1230e8b9-dfd1-40ea-9b70-a027cd2d4f4e"
+    },
+    "f18392f2-b86a-4ac8-b02a-dedbeacad33a": {
+        "title": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "genre": "Fantasy",
+        "bookImage": "https://m.media-amazon.com/images/I/7125+5E40JL._AC_UF1000,1000_QL80_.jpg",
+        "authorImage": "https://cdn.britannica.com/65/66765-050-63A945A7/JRR-Tolkien.jpg",
+        "year": "1954",
+        "publisher": "George Allen & Unwin",
+        "description": "An epic high-fantasy novel written by English author and scholar J. R. R. Tolkien.",
+        "_id": "f18392f2-b86a-4ac8-b02a-dedbeacad33a"
+    },
+    "c88abd34-46f1-42a1-9cb9-e2ce9bbd6058": {
+        "title": "Harry Potter and the Philosopher's Stone",
+        "author": "J.K. Rowling",
+        "genre": "Fantasy",
+        "bookImage": "https://m.media-amazon.com/images/I/81q77Q39nEL._AC_UF894,1000_QL80_.jpg",
+        "authorImage": "https://cdn.britannica.com/36/235336-050-D26FAD80/J-K-Rowling-2017-Harry-Potter-author.jpg",
+        "year": "1997",
+        "publisher": "Bloomsbury",
+        "description": "The first book in the Harry Potter series, introducing young Harry as he discovers his magical heritage and attends Hogwarts School of Witchcraft and Wizardry.",
+        "_id": "c88abd34-46f1-42a1-9cb9-e2ce9bbd6058"
+    }
+}
+
