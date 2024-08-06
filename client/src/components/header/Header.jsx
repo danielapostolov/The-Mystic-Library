@@ -19,30 +19,30 @@ export default function Example() {
                 <div className="hidden lg:flex lg:gap-x-12">
 
 
-                    <Link to="/" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
+                    <Link to="/" className="text-sm font-semibold hover:text-orange-600 leading-6 text-white">
                         Home
                     </Link>
-                    <Link to="/catalog" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
+                    <Link to="/books" className="text-sm font-semibold hover:text-orange-600 leading-6 text-white">
                         Catalog
                     </Link>
-                    <Link to="/about" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
+                    <Link to="/about" className="text-sm font-semibold hover:text-orange-600 leading-6 text-white">
                         About us
                     </Link>
-                    <Link to="/" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
+                    <Link to="/book/create" className="text-sm font-semibold hover:text-orange-600 leading-6 text-white">
                         Create book
                     </Link>
                     
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-4">
-                    <Link to="/" className="rounded-md  hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
+                    <Link to="/" className="rounded-md px-1 py-0.5 hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
                         Log out
                     </Link>
 
-                    <Link to="/login" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white ">
+                    <Link to="/login" className="text-sm font-semibold hover:text-orange-600 leading-6 text-white ">
                         Log in
                     </Link>
 
-                    <Link to="/sign-up" className="rounded-md  hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
+                    <Link to="/sign-up" className="rounded-md px-1 py-0.5 hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
                         Sign up
                     </Link>
                 </div>
