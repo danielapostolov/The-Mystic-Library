@@ -6,7 +6,7 @@ module.exports = withMT({
     extend: {
       backgroundImage: {
         'hero-pattern': "url('./assets/background-image-blurred.png')",
-      }
+      },
     },
   },
   plugins: [],

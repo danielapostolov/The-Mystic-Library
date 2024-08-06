@@ -26,23 +26,23 @@ export default function Home() {
                             Explore the infinity of books and gain knowledge
                         </h2>
                         <p className="mt-6 text-lg leading-8 text-gray-300 italic">
-                         "Show me a family of readers, and I will show you the people who move the world."
+                            "Show me a family of readers, and I will show you the people who move the world."
                         </p>
-                         <span className='text-lg text-white'>– Napoleon Bonaparte</span> 
+                        <span className='text-lg text-white'>– Napoleon Bonaparte</span>
                         <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-                            <Link 
+                            <Link
                                 to="/catalog"
                                 className="rounded-md bg-orange-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                             >
                                 Explore
                             </Link>
-                            <Link  to="/about" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
+                            <Link to="/about" className="text-sm font-semibold hover:text-orange-700 leading-6 text-white">
                                 About us <span aria-hidden="true">→</span>
                             </Link>
                         </div>
                     </div>
                     <div className="relative mt-16 h-80 lg:mt-8">
-                        <p style={{ color: "" }} className='text-2xl font-bold text-orange-800 absolute pt-20  ps-40 mt-10'>Welcome!</p>
+                        <p className='text-2xl text-justify italic text-orange-800 absolute pt-20  ps-40 mt-10'>Welcome!</p>
                         <img
                             className='mb-3'
                             alt="App screenshot"
