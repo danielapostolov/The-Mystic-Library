@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'
 import * as BooksAPI from '../../api/books-api';
+import BookCatalogCard from './book-catalog-card/BookCatalogCard';
 
 
 export default function BookCatalog() {
@@ -45,25 +45,7 @@ export default function BookCatalog() {
     <div className="max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8 ">
       <h2 className="text-3xl font-extrabold tracking-tight text-white">Book Catalog</h2>
       <div className="mt-6 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {data.map((book) => (
-          <div key={book.id} className="bg-gray-900 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:-translate-y-1 hover:scale-105">
-            <img
-              src={book.bookImage}
-              alt={`${book.title} cover`}
-              className="w-full h-60 object-cover"
-            />
-            <div className="p-4">
-              <h3 className="text-lg font-medium text-white">{book.title}</h3>
-              <p className="mt-2 text-sm text-gray-600">{book.genre}</p>
-              <Link
-                to={`/books/${book._id}`}
-                className="mt-4 inline-block text-orange-600 hover:text-orange-200 transition-colors"
-              >
-                View Details
-              </Link>
-            </div>
-          </div>
-        ))}
+        {books.map((book) => <BookCatalogCard key={book._id} {...book}/>)}
       </div>
     </div>
   );
