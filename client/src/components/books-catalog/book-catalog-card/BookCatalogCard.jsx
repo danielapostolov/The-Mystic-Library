@@ -19,7 +19,7 @@ export default function BookCatalogCard({
                 <h3 className="text-lg font-medium text-white">{title}</h3>
                 <p className="mt-2 text-sm text-gray-600">{genre}</p>
                 <Link
-                    to={`/books/${_id}`}
+                    to={`/books/${_id}/details`}
                     className="mt-4 inline-block text-orange-600 hover:text-orange-200 transition-colors"
                 >
                     View Details

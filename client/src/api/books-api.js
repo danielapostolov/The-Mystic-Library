@@ -11,3 +11,13 @@ export const getAll = async () => {
 
     return books;
 } 
+
+export const getOne = (bookId) => request.get(`${BASE_URL}/${bookId}`);
+
+
+const booksAPI = {
+    getAll,
+    getOne
+};
+
+export default booksAPI;

@@ -31,7 +31,7 @@ export default function Home() {
                         <span className='text-lg text-white'>– Napoleon Bonaparte</span>
                         <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                             <Link
-                                to="/catalog"
+                                to="/books"
                                 className="rounded-md bg-orange-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                             >
                                 Explore
