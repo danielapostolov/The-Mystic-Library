@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import * as BooksAPI from '../../api/books-api';
+import booksAPI from '../../api/books-api';
 
 
 import BookCatalogCard from './book-catalog-card/BookCatalogCard';
@@ -11,7 +11,7 @@ export default function BookCatalog() {
 
   useEffect(() => {
     (async () => {
-      const result = await BooksAPI.getAll();
+      const result = await booksAPI.getAll();
       setBooks(result);
     })();
   }, []);

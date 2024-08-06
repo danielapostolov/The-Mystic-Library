@@ -11,8 +11,6 @@ export default function BookDetails() {
 
   useEffect(() => {
     (async () => {
-      console.log(bookId);
-      
       const result = await booksAPI.getOne(bookId);
       setBook(result);
     })();
