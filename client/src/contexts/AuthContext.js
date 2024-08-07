@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 export const AuthContext = createContext({
     email: '',
-    userId: authState._id, 
+    userId: '', 
     accessToken: '',
     isAuthenticated: false,
     changeAuthState: (authState = {}) => null ,

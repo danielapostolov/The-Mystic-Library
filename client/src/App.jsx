@@ -11,7 +11,7 @@ import BookDetails from './components/book-details/BookDetails';
 import BookCreate from './components/book-create/BookCreate';
 import BookCatalog from './components/books-catalog/BooksCatalog';
 import { useState } from 'react';
-import { AuthContext } from './contexts/authContext';
+import { AuthContext } from './contexts/AuthContext';
 
 function App() {
     const [authState, setAuthState] = useState({});

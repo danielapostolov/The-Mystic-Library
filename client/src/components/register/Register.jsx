@@ -1,18 +1,41 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useRegister } from "../../hooks/useAuth";
+import { useForm } from "../../hooks/useForm";
+import { useState } from "react";
 
+
+
+const initialValues = { username: '', email: '', password: '' };
 
 export default function Register() {
+    const [error, setError] = useState('');
+    const register = useRegister();
+    const navigate = useNavigate();
+
+    const registerHandler = async ({ email, password }) => {
+
+
+        try {
+            await register(email, password);
+            navigate('/')
+
+        } catch (err) {
+            setError(err.message);
+            console.log(err.message);
+        }
+    };
+
+    const { values, changeHandler, submitHandler } = useForm(initialValues, registerHandler);
+
     return (
         <>
             {/*
-    This example requires updating your template:
-
     ```
     <html class="h-full bg-white">
     <body class="h-full">
     ```
   */}
-            <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+            < div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8" >
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
                         Sign up
@@ -20,18 +43,19 @@ export default function Register() {
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form action="#" method="POST" className="space-y-6">
+                    <form className="space-y-6" onSubmit={submitHandler}>
+
                         <div>
-                            <div className="flex items-center justify-between">
-                                <label htmlFor="username" className="block text-sm font-medium leading-6 text-white">
-                                    Username
-                                </label>
-                            </div>
+                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-white">
+                                Username
+                            </label>
                             <div className="mt-2">
                                 <input
                                     id="username"
                                     name="username"
                                     type="username"
+                                    value={values.username}
+                                    onChange={changeHandler}
                                     required
                                     autoComplete="username"
                                     className="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -48,6 +72,8 @@ export default function Register() {
                                     id="email"
                                     name="email"
                                     type="email"
+                                    value={values.email}
+                                    onChange={changeHandler}
                                     required
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -66,12 +92,18 @@ export default function Register() {
                                     id="password"
                                     name="password"
                                     type="password"
+                                    value={values.password}
+                                    onChange={changeHandler}
                                     required
                                     autoComplete="current-password"
                                     className="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
+
+                        {error && (
+                            <p className="mt-10 text-center text-sm text-red-600">{error}</p>
+                        )}
 
                         <div>
                             <button
