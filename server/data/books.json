@@ -8,7 +8,14 @@
         "year": "1925",
         "publisher": "Charles Scribner's Sons",
         "description": "The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island.",
-        "_id": "d0fb0058-8b7b-4523-9a5f-10def55df940"
+        "_id": "d0fb0058-8b7b-4523-9a5f-10def55df940",
+        "comments": {
+            "d29d0fbd-9c78-4722-ab49-85481a6a04b4": {
+                "username": "Daniel",
+                "text": "Много интересна",
+                "_id": "d29d0fbd-9c78-4722-ab49-85481a6a04b4"
+            }
+        }
     },
     "1230e8b9-dfd1-40ea-9b70-a027cd2d4f4e": {
         "title": "The Hobbit",
@@ -30,7 +37,14 @@
         "year": "1954",
         "publisher": "George Allen & Unwin",
         "description": "An epic high-fantasy novel written by English author and scholar J. R. R. Tolkien.",
-        "_id": "f18392f2-b86a-4ac8-b02a-dedbeacad33a"
+        "_id": "f18392f2-b86a-4ac8-b02a-dedbeacad33a",
+        "comments": {
+            "ffdc5cd9-c1f9-4823-a71a-bafa9589c4bf": {
+                "username": "Jane Smith ",
+                "text": "An intriguing story with complex characters. Highly recommend it.!",
+                "_id": "ffdc5cd9-c1f9-4823-a71a-bafa9589c4bf"
+            }
+        }
     },
     "c88abd34-46f1-42a1-9cb9-e2ce9bbd6058": {
         "title": "Harry Potter and the Philosopher's Stone",
@@ -44,4 +58,3 @@
         "_id": "c88abd34-46f1-42a1-9cb9-e2ce9bbd6058"
     }
 }
-
