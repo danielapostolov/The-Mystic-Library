@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../contexts/AuthContext'
 
 export default function Example() {
+    const { isAuthenticated } = useContext(AuthContext);
 
     return (
         <header className="">
@@ -28,26 +30,42 @@ export default function Example() {
                     <Link to="/about" className="text-sm font-semibold hover:text-orange-600 leading-6 text-white">
                         About us
                     </Link>
-                    <Link to="/book/create" className="text-sm font-semibold hover:text-orange-600 leading-6 text-white">
-                        Create book
-                    </Link>
-                    
+
+                    {isAuthenticated
+
+                        && <Link to="/book/create" className="text-sm font-semibold hover:text-orange-600 leading-6 text-white">
+                            Create book
+                        </Link>
+                    }
+
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-4">
-                    <Link to="/" className="rounded-md px-1 py-0.5 hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
-                        Log out
-                    </Link>
 
-                    <Link to="/login" className="text-sm font-semibold hover:text-orange-600 leading-6 text-white ">
-                        Log in
-                    </Link>
+                    {isAuthenticated
 
-                    <Link to="/sign-up" className="rounded-md px-1 py-0.5 hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
-                        Sign up
-                    </Link>
+                        && < Link to="/" className="rounded-md px-1 py-0.5 hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
+                            Log out
+                        </Link>
+                    }
+
+
+                    {!isAuthenticated
+                        && < Link to="/login" className="text-sm font-semibold hover:text-orange-600 leading-6 text-white ">
+                            Log in
+                        </Link>
+                    }
+
+                    {!isAuthenticated
+                        && <Link to="/sign-up" className="rounded-md px-1 py-0.5 hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
+                            Sign up
+                        </Link>
+                    }
+
+
+
                 </div>
             </nav>
 
-        </header>
+        </header >
     )
 }
