@@ -12,7 +12,7 @@ export default function BookDetails() {
     const [book, setBook] = useGetOneBooks(bookId);
     const [username, setUsername] = useState('');
     const [comment, setComment] = useState('');
-
+    
 
 
 
