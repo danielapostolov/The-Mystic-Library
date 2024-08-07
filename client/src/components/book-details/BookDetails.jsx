@@ -1,25 +1,20 @@
-import React, { useEffect, useState } from 'react';
-
-import booksAPI from '../../api/books-api';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import TextAreaComponent from '../text-area/TextAreaComponent';
+
 import commentsApi from '../../api/comments-api';
 
+import TextAreaComponent from '../text-area/TextAreaComponent';
+import { useGetOneBooks } from '../../hooks/useBooks';
 // import { FaHeart, FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
 
 export default function BookDetails() {
-    const [book, setBook] = useState({});
+    const { bookId } = useParams();
+    const [book, setBook] = useGetOneBooks(bookId);
     const [username, setUsername] = useState('');
     const [comment, setComment] = useState('');
 
-    const { bookId } = useParams();
 
-    useEffect(() => {
-        (async () => {
-            const result = await booksAPI.getOne(bookId);
-            setBook(result);
-        })();
-    }, []);
+
 
     const commentSubmitHandler = async (e) => {
         e.preventDefault();
@@ -27,7 +22,7 @@ export default function BookDetails() {
         const newComment = await commentsApi.create(bookId, username, comment);
 
         console.log(newComment);
-        
+
         setBook(prevState => ({
             ...prevState,
             comments: {
