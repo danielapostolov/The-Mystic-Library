@@ -23,7 +23,7 @@ export function useGetOneBooks(bookId) {
             const result = await booksAPI.getOne(bookId);
             setBook(result);
         })();
-    }, []);
+    }, [bookId]);
     
     return [book, setBook];
 
