@@ -24,7 +24,13 @@ export function useGetOneBooks(bookId) {
             setBook(result);
         })();
     }, [bookId]);
-    
+
     return [book, setBook];
 
+}
+
+export function useCreateBooks() {
+    const bookCreateHandler = (bookData) => booksAPI.create();
+
+    return bookCreateHandler;
 }
