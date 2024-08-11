@@ -15,7 +15,7 @@ export const useLogin = () => {
 
     return loginHandler;
 };
-
+//TODO fix register
 export const useRegister = () => {
     const { changeAuthState } = useContext(AuthContext);
 

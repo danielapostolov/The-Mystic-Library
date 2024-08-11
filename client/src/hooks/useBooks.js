@@ -28,9 +28,9 @@ export function useGetOneBooks(bookId) {
     return [book, setBook];
 
 }
-
+//TODO fix create
 export function useCreateBooks() {
-    const bookCreateHandler = (bookData) => booksAPI.create();
+    const bookCreateHandler = (bookData) => booksAPI.create(bookData);
 
     return bookCreateHandler;
 }
