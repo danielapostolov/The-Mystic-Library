@@ -1367,6 +1367,19 @@
                 comments: [],
                 _createdOn: 1723382221181,
                 _id: "2187dfa2-2f80-4cb5-b34f-9eab3a7d1c1a"
+            },
+            "0838f2b3-0bc1-4fb6-a583-8c3805238d02": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "The Hobbit",
+                "author": "J.R.R. Tolkien",
+                "genre": "Fantasy",
+                "bookImage": "https://m.media-amazon.com/images/I/712cDO7d73L._AC_UF1000,1000_QL80_.jpg",
+                "authorImage": "https://cdn.britannica.com/65/66765-050-63A945A7/JRR-Tolkien.jpg",
+                "year": "1937",
+                "publisher": "George Allen & Unwin",
+                "description": "A fantasy novel and children’s book by J. R. R. Tolkien. It was published on 21 September 1937 to wide critical acclaim.",
+                "_createdOn": 1723382913159,
+                "_id": "0838f2b3-0bc1-4fb6-a583-8c3805238d02"
             }
 
         },
