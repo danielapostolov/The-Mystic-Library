@@ -10,28 +10,12 @@ import About from './components/about/About';
 import BookDetails from './components/book-details/BookDetails';
 import BookCreate from './components/book-create/BookCreate';
 import BookCatalog from './components/books-catalog/BooksCatalog';
-import { useState } from 'react';
-import { AuthContext } from './contexts/AuthContext';
+import { AuthContextProvider } from './contexts/AuthContext';
 
 function App() {
-    const [authState, setAuthState] = useState({});
-
-    const changeAuthState = (state) => {
-        localStorage.setItem('accessToken', state.accessToken)
-
-        setAuthState(state);
-    };
-
-    const contextData = {
-        email: authState.email,
-        userId: authState._id,
-        accessToken: authState.accessToken,
-        isAuthenticated: !!authState.email,
-        changeAuthState,
-    };
 
     return (
-        <AuthContext.Provider value={contextData}>
+        <AuthContextProvider>
             <div>
                 <Header />
                 <main>
@@ -47,7 +31,7 @@ function App() {
                 </main>
 
             </div>
-        </AuthContext.Provider>
+        </AuthContextProvider>
     )
 }
 
