@@ -6,9 +6,8 @@ import { useGetAllComments, useCreateComment } from '../../hooks/useComments';
 
 import TextAreaComponent from '../text-area/TextAreaComponent';
 import { useAuthContext } from '../../contexts/AuthContext';
-// import { FaHeart, FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
 
-
+//TODO add username when register
 const initialValues = {
     comment: ''
 }
@@ -26,7 +25,7 @@ export default function BookDetails() {
     } = useForm(initialValues, async ({ comment }) => {
         try {
             const newComment = await createComment(bookId, comment);
-            
+
             setComments(oldComments => [...oldComments, newComment]);
         } catch (err) {
             console.log(err.message);
@@ -83,7 +82,7 @@ export default function BookDetails() {
 
                         {comments?.map((comment) => (
                             <div key={comment._id} className="text-sm text-white">
-                                <p className="font-semibold text-gray-900">username:</p>
+                                <p className="font-semibold text-gray-900">{comment.author.email}:</p>
                                 <p>{comment.text}</p>
                             </div>
 

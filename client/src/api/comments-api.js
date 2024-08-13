@@ -11,7 +11,8 @@ const create = async (bookId, text) => {
 
 const getAll = (bookId) => {
     const params = new URLSearchParams({
-        where: `bookId="${bookId}"`
+        where: `bookId="${bookId}"`,
+        load:`author=_ownerId:users`
     });
     return requester.get(`${BASE_URL}?${params.toString()}`);
 };
