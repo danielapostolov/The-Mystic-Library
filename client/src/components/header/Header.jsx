@@ -42,7 +42,7 @@ export default function Example() {
 
                     {isAuthenticated
 
-                        && < Link to="/" className="rounded-md px-1 py-0.5 hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
+                        && < Link to="/logout" className="rounded-md px-1 py-0.5 hover:bg-orange-900 text-sm font-semibold leading-6 text-white bg-orange-800">
                             Log out
                         </Link>
                     }

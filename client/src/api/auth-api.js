@@ -10,3 +10,5 @@ export const login = async (email, password) => {
 }
 
 export const register = (email, password) => requester.post(`${BASE_URL}/register`, { email, password });
+
+export const logout = () => requester.get(`${BASE_URL}/logout`);
