@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../contexts/AuthContext'
 
-export default function Example() {
+export default function Header() {
     const { isAuthenticated } = useAuthContext();
 
     return (
