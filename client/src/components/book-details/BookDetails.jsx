@@ -10,7 +10,7 @@ import { useAuthContext } from '../../contexts/AuthContext';
 
 
 const initialValues = {
-    name: ''
+    comment: ''
 }
 
 export default function BookDetails() {
@@ -23,8 +23,15 @@ export default function BookDetails() {
         values,
         changeHandler,
         submitHandler
-    } = useForm(initialValues, ({ comment }) => {
-        createComment(bookId, comment);
+    } = useForm(initialValues, async ({ comment }) => {
+        try {
+            const newComment = await createComment(bookId, comment);
+            
+            setComments(oldComments => [...oldComments, newComment]);
+        } catch (err) {
+            console.log(err.message);
+
+        }
     });
 
     return (
