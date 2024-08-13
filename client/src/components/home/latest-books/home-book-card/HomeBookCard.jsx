@@ -14,7 +14,7 @@ export default function HomeBookCard({
             <img
                 src={bookImage}
                 alt={`${title} cover`}
-                className="w-full h-60 object-cover"
+                className="w-full h-60 object-fit"
             />
             <div className="p-4">
                 <h3 className="text-lg font-medium text-white">{title}</h3>
