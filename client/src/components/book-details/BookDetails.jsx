@@ -1,40 +1,31 @@
-import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import commentsApi from '../../api/comments-api';
+import { useGetOneBooks } from '../../hooks/useBooks'
+import { useForm } from '../../hooks/useForm';
+import { useGetAllComments, useCreateComment } from '../../hooks/useComments';
 
 import TextAreaComponent from '../text-area/TextAreaComponent';
-import { useGetOneBooks } from '../../hooks/useBooks';
+import { useAuthContext } from '../../contexts/AuthContext';
 // import { FaHeart, FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
+
+
+const initialValues = {
+    name: ''
+}
 
 export default function BookDetails() {
     const { bookId } = useParams();
-    const [book, setBook] = useGetOneBooks(bookId);
-    const [username, setUsername] = useState('');
-    const [comment, setComment] = useState('');
-    
-
-
-
-    const commentSubmitHandler = async (e) => {
-        e.preventDefault();
-
-        const newComment = await commentsApi.create(bookId, username, comment);
-
-        console.log(newComment);
-
-        setBook(prevState => ({
-            ...prevState,
-            comments: {
-                ...prevState.comments,
-                [newComment.id]: newComment,
-            }
-        }));
-
-        setUsername('');
-        setComment('');
-
-    }
+    const [comments, setComments] = useGetAllComments(bookId);
+    const [book] = useGetOneBooks(bookId);
+    const createComment = useCreateComment();
+    const { isAuthenticated } = useAuthContext();
+    const {
+        values,
+        changeHandler,
+        submitHandler
+    } = useForm(initialValues, ({ comment }) => {
+        createComment(bookId, comment);
+    });
 
     return (
         <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
@@ -48,16 +39,7 @@ export default function BookDetails() {
                     <div>
                         <h3 className="text-2xl leading-6 font-medium text-white">{book.title}</h3>
                         <p className="mt-1 max-w-2xl text-lg text-gray-500">{book.genre}</p>
-                        {/* <div className="flex items-center mt-4">
-              <button className="flex items-center text-gray-600 hover:text-gray-800 mr-4">
-                <FaThumbsUp className="mr-1" />
-                Like
-              </button>
-              <button className="flex items-center text-gray-600 hover:text-gray-800">
-                <FaThumbsDown className="mr-1" />
-                Dislike
-              </button>
-            </div> */}
+
                     </div>
                 </div>
                 <div className="border-t border-gray-200 ">
@@ -92,55 +74,45 @@ export default function BookDetails() {
 
                     <div className="mt-2 mb-4 space-y-4">
 
-                        {Object.keys(book.comments || {}).length > 0
-                            ? Object.values(book.comments).map((comment) => (
-                                <div key={comment._id} className="text-sm text-white">
-                                    <p className="font-semibold text-gray-900">{comment.username}:</p>
-                                    <p>{comment.text}</p>
-                                </div>
+                        {comments?.map((comment) => (
+                            <div key={comment._id} className="text-sm text-white">
+                                <p className="font-semibold text-gray-900">username:</p>
+                                <p>{comment.text}</p>
+                            </div>
 
 
-                            ))
-                            : <p className='text-lg text-white'>No comments yet</p>
+                        ))
                         }
+                        {comments.length === 0 && <p className='text-lg text-white'>No comments yet</p>}
 
                     </div>
-                    <div className='mt-1 pt-5 border-t border-gray-200'>
-                        <form onSubmit={commentSubmitHandler}>
-                            <h3 className="text-lg leading-6 font-medium text-orange-600 mb-4">Add new comment</h3>
+                    {isAuthenticated && (
 
-                            <input
-                                className='p-2 rounded-lg mb-3 bg-gray-700 '
-                                type="text"
-                                placeholder='username'
-                                required
-                                name='username'
-                                onChange={(e) => setUsername(e.target.value)}
-                                value={username}
-                            />
 
-                            <TextAreaComponent
-                                placeholder="Write your comment here..."
-                                rows="1"
-                                onChange={(e) => setComment(e.target.value)}
-                                value={comment}
-                            />
+                        < div className='mt-1 pt-5 border-t border-gray-200'>
+                            <form onSubmit={submitHandler}>
+                                <h3 className="text-lg leading-6 font-medium text-orange-600 mb-4">Add new comment</h3>
 
-                            <button type='submit' className="mt-1 bg-orange-800 text-white px-4 py-2 rounded-lg shadow hover:bg-orange-900">
-                                Add comment
-                            </button>
-                        </form>
-                    </div>
 
+                                <TextAreaComponent
+                                    placeholder="Write your comment here..."
+                                    rows="1"
+                                    onChange={changeHandler}
+                                    value={values.comment}
+                                    name="comment"
+                                />
+
+                                <button type='submit' className="mt-1 bg-orange-800 text-white px-4 py-2 rounded-lg shadow hover:bg-orange-900">
+                                    Add comment
+                                </button>
+                            </form>
+                        </div>
+                    )}
 
                 </div>
-                {/* <div className="px-4 py-5 sm:px-6 flex justify-end">
-          <button className="text-indigo-500 hover:text-indigo-600">
-            <FaHeart className="w-6 h-6" />
-          </button>
-        </div> */}
+
             </div>
-        </div>
+        </div >
 
     );
 };
