@@ -33,6 +33,8 @@ export default function BookDetails() {
         }
     });
 
+    //TODO owner  check with userId, book _ownerId
+
     return (
         <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
             <div className="bg-gray-900 shadow overflow-hidden sm:rounded-lg">
@@ -45,6 +47,13 @@ export default function BookDetails() {
                     <div>
                         <h3 className="text-2xl leading-6 font-medium text-white">{book.title}</h3>
                         <p className="mt-1 max-w-2xl text-lg text-gray-500">{book.genre}</p>
+
+                        <button type='submit' className="mt-1 bg-blue-800 text-white px-2 py-1 rounded-lg shadow hover:bg-blue-900">
+                            Edit
+                        </button>
+                        <button type='submit' className="mt-6 ml-1 bg-red-800 text-white px-2 py-1 rounded-lg shadow hover:bg-red-900">
+                            Delete
+                        </button>
 
                     </div>
                 </div>

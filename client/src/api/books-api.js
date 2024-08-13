@@ -1,6 +1,5 @@
 import * as request from './requester';
 
-//TODO change url
 const BASE_URL = 'http://localhost:3030/data/books';
 
 
