@@ -33,3 +33,7 @@ export function useCreateBooks() {
 
     return bookCreateHandler;
 }
+
+export function useDeleteGame(gameId) {
+
+}

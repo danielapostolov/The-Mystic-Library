@@ -20,8 +20,7 @@ export default function Register() {
             navigate('/')
 
         } catch (err) {
-            setError(err.message);
-            console.log(err.message);
+            console.log('Caught error on register:', err.message);
         }
     };
 

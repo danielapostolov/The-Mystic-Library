@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { useGetOneBooks } from '../../hooks/useBooks'
 import { useForm } from '../../hooks/useForm';
@@ -6,16 +6,18 @@ import { useGetAllComments, useCreateComment } from '../../hooks/useComments';
 
 import TextAreaComponent from '../text-area/TextAreaComponent';
 import { useAuthContext } from '../../contexts/AuthContext';
+import booksAPI from '../../api/books-api';
 
 const initialValues = {
     comment: ''
 }
 
 export default function BookDetails() {
+    const navigate = useNavigate()
     const { bookId } = useParams();
     const [comments, dispatch] = useGetAllComments(bookId);
     const createComment = useCreateComment();
-    const { email } = useAuthContext();
+    const { email, userId } = useAuthContext();
     const [book] = useGetOneBooks(bookId);
     const { isAuthenticated } = useAuthContext();
     const {
@@ -29,12 +31,23 @@ export default function BookDetails() {
             // await setComments(oldComments => [...oldComments, newComment]);
             dispatch({ type: 'ADD_COMMENT', payload: { ...newComment, author: { email } } })
         } catch (err) {
-            console.log(err.message);
+            console.log('Caught error on comment:', err.message);
 
         }
     });
 
-    //TODO owner  check with userId, book _ownerId
+    const bookDeleteHandler = async () => {
+        try {
+            await booksAPI.remove(bookId)
+
+            navigate('/');
+        } catch (err) {
+            console.log('Caught error on delete:', err.message);
+
+        }
+    }
+
+    const isOwner = userId === book._ownerId;
 
     return (
         <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
@@ -49,12 +62,14 @@ export default function BookDetails() {
                         <h3 className="text-2xl leading-6 font-medium text-white">{book.title}</h3>
                         <p className="mt-1 max-w-2xl text-lg text-gray-500">{book.genre}</p>
 
-                        <button type='submit' className="mt-1 bg-blue-800 text-white px-2 py-1 rounded-lg shadow hover:bg-blue-900">
-                            Edit
-                        </button>
-                        <button type='submit' className="mt-6 ml-1 bg-red-800 text-white px-2 py-1 rounded-lg shadow hover:bg-red-900">
-                            Delete
-                        </button>
+                        {isOwner && (<p>
+                            <button type='submit' className="mt-1 bg-blue-800 text-white px-2 py-1 rounded-lg shadow hover:bg-blue-900">
+                                Edit
+                            </button>
+                            <button type='submit' onClick={bookDeleteHandler} className="mt-6 ml-1 bg-red-800 text-white px-2 py-1 rounded-lg shadow hover:bg-red-900">
+                                Delete
+                            </button>
+                        </p>)}
 
                     </div>
                 </div>

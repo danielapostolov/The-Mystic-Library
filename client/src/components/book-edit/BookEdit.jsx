@@ -1,41 +1,6 @@
-import { useCreateBooks } from "../../hooks/useBooks";
-import { useForm } from "../../hooks/useForm";
-import { useNavigate } from "react-router-dom";
+export default function BookEdit() {
 
-const initialValues = {
-    title: '',
-    author: '',
-    genre: '',
-    bookImage: '',
-    authorImage: '',
-    year: '',
-    publisher: '',
-    description: ''
-}
-export default function BookCreate() {
-    const navigate = useNavigate();
-    const createBook = useCreateBooks();
-
-
-
-    const createHandler = async (values) => {
-
-        console.log(values);
-
-        try {
-            const { _id: bookId } = await createBook(values);
-            navigate(`/books/${bookId}/details`);
-        } catch (err) {
-            //TODO set error state and display error
-            console.log('Caught error during creation:', err.message);
-        }
-
-    }
-
-    const { values, changeHandler, submitHandler } = useForm(initialValues, createHandler);
-
-
-    //TODO set placeholders
+    
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -218,4 +183,5 @@ export default function BookCreate() {
             </div>
         </div>
     );
+
 }
