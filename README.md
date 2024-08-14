@@ -27,17 +27,11 @@ To get a local copy up and running follow these simple steps:
  
 ### **Clone the repository:**
  
-    ```bash
     git clone https://github.com/danielapostolov/The-Mystic-Library.git
-    ```
  
 ### **Install the dependencies:**
  
-    For npm:
- 
-    ```bash
     npm install
-    ```
  
 ### Start the server (1st terminal)
 
