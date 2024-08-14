@@ -35,16 +35,16 @@ To get a local copy up and running follow these simple steps:
  
 ### Start the server (1st terminal)
 
+open 1st terminal
 ```sh
-open terminal (1st terminal)
 cd server
 node server.js
 ```
 
 ### Run the client (2nd terminal)
 
+Open 2nd terminal
 ```sh
-open terminal (2nd terminal)
 cd client
 npm run dev
 ```
