@@ -7,16 +7,16 @@ import { useGetAllComments, useCreateComment } from '../../hooks/useComments';
 import TextAreaComponent from '../text-area/TextAreaComponent';
 import { useAuthContext } from '../../contexts/AuthContext';
 
-//TODO add username when register
 const initialValues = {
     comment: ''
 }
 
 export default function BookDetails() {
     const { bookId } = useParams();
-    const [comments, setComments] = useGetAllComments(bookId);
-    const [book] = useGetOneBooks(bookId);
+    const [comments, dispatch] = useGetAllComments(bookId);
     const createComment = useCreateComment();
+    const { email } = useAuthContext();
+    const [book] = useGetOneBooks(bookId);
     const { isAuthenticated } = useAuthContext();
     const {
         values,
@@ -26,7 +26,8 @@ export default function BookDetails() {
         try {
             const newComment = await createComment(bookId, comment);
 
-            setComments(oldComments => [...oldComments, newComment]);
+            // await setComments(oldComments => [...oldComments, newComment]);
+            dispatch({ type: 'ADD_COMMENT', payload: { ...newComment, author: { email } } })
         } catch (err) {
             console.log(err.message);
 

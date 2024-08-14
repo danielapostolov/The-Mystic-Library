@@ -1,6 +1,6 @@
 import commentsAPI from '../api/comments-api';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 
 export function useCreateComment() {
     const createHandler = (bookId, comment) => commentsAPI.create(bookId, comment);
@@ -8,15 +8,27 @@ export function useCreateComment() {
     return createHandler;
 }
 
+function commentsReducer(state, action) {
+    switch (action.type) {
+        case 'GET_ALL':
+            return action.payload.slice();
+        case 'ADD_COMMENT':
+            return [...state, action.payload]
+        default:
+            return state;
+    }
+}
+
 export function useGetAllComments(bookId) {
-    const [comments, setComments] = useState([]);
+    const [comments, dispatch] = useReducer(commentsReducer, []);
+    // const [comments, setComments] = useState([]);
 
     useEffect(() => {
         (async () => {
             const result = await commentsAPI.getAll(bookId);
-            setComments(result);
+            dispatch({ type: 'GET_ALL', payload: result });
         })();
     }, [bookId])
 
-    return [comments, setComments];
+    return [comments, dispatch];
 }
