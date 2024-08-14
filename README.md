@@ -4,7 +4,7 @@
  
 ## Overview
  
-**The Mystic Library** is a [online book library]. This React project gives you the oppurtunity to find every book you want in no time! 
+**The Mystic Library** is an online book library. This React project gives you the oppurtunity to find every book you want in no time! 
 And that's not all! In addition, you can add new books to the Mystic Library. Also, that gives you rules to edit or delete your own posts. The only thing you need to do is register on our site! What are you waiting for!
  
 ## Features
