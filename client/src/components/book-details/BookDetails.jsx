@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import { useGetOneBooks } from '../../hooks/useBooks'
 import { useForm } from '../../hooks/useForm';
@@ -37,6 +37,10 @@ export default function BookDetails() {
     });
 
     const bookDeleteHandler = async () => {
+        const isConfirmed = confirm(`Are you sure you want to delete ${book.title} book?`);
+        if (!isConfirmed) {
+            return;
+        }
         try {
             await booksAPI.remove(bookId)
 
@@ -45,6 +49,7 @@ export default function BookDetails() {
             console.log('Caught error on delete:', err.message);
 
         }
+
     }
 
     const isOwner = userId === book._ownerId;
@@ -63,9 +68,11 @@ export default function BookDetails() {
                         <p className="mt-1 max-w-2xl text-lg text-gray-500">{book.genre}</p>
 
                         {isOwner && (<p>
-                            <button type='submit' className="mt-1 bg-blue-800 text-white px-2 py-1 rounded-lg shadow hover:bg-blue-900">
-                                Edit
-                            </button>
+                            <Link to={`/books/${bookId}/edit`} >
+                                <button type='submit' className="mt-1 bg-blue-800 text-white px-2 py-1 rounded-lg shadow hover:bg-blue-900">
+                                    Edit
+                                </button>
+                            </Link>
                             <button type='submit' onClick={bookDeleteHandler} className="mt-6 ml-1 bg-red-800 text-white px-2 py-1 rounded-lg shadow hover:bg-red-900">
                                 Delete
                             </button>

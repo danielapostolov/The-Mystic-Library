@@ -16,7 +16,16 @@ export function useGetAllBooks() {
 }
 
 export function useGetOneBooks(bookId) {
-    const [book, setBook] = useState({});
+    const [book, setBook] = useState({
+        title: '',
+        author: '',
+        genre: '',
+        bookImage: '',
+        authorImage: '',
+        year: '',
+        publisher: '',
+        description: ''
+    });
 
     useEffect(() => {
         (async () => {
@@ -32,8 +41,4 @@ export function useCreateBooks() {
     const bookCreateHandler = (bookData) => booksAPI.create(bookData);
 
     return bookCreateHandler;
-}
-
-export function useDeleteGame(gameId) {
-
 }

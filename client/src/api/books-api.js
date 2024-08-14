@@ -17,11 +17,14 @@ export const getOne = (bookId) => request.get(`${BASE_URL}/${bookId}`);
 export const create = (bookData) => request.post(`${BASE_URL}`, bookData);
 
 export const remove = (bookId) => request.del(`${BASE_URL}/${bookId}`);
+
+export const update = (bookId, bookData) => request.put(`${BASE_URL}/${bookId}`, bookData)
 const booksAPI = {
     getAll,
     getOne,
     create,
-    remove
+    remove,
+    update
 };
 
 export default booksAPI;

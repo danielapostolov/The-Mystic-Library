@@ -1,11 +1,43 @@
-export default function BookEdit() {
+import { useNavigate, useParams } from 'react-router-dom';
+import { useForm } from '../../hooks/useForm'
+import { useGetOneBooks } from '../../hooks/useBooks';
+import booksAPI from '../../api/books-api';
 
-    
+// const initialValues = {
+//     title: '',
+//     author: '',
+//     genre: '',
+//     bookImage: '',
+//     authorImage: '',
+//     year: '',
+//     publisher: '',
+//     description: ''
+// }
+export default function BookEdit() {
+    const navigate = useNavigate();
+    const { bookId } = useParams();
+    const [book] = useGetOneBooks(bookId);
+
+
+    const {
+        values,
+        changeHandler,
+        submitHandler,
+    } = useForm(book, async (values) => {
+        const isConfirmed = confirm(`Are you sure you want to update ${book.title} book?`);
+        if (isConfirmed) {
+            
+            await booksAPI.update(bookId, values);
+            navigate(`/books/${bookId}/details`)
+        }
+    }, { reinitializeForm: true });
+
+
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
-                    Create Book
+                    Edit Book
                 </h2>
             </div>
 
