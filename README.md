@@ -25,13 +25,13 @@ And that's not all! In addition, you can add new books to the Mystic Library. Al
  
 To get a local copy up and running follow these simple steps:
  
-1. **Clone the repository:**
+### **Clone the repository:**
  
     ```bash
     git clone https://github.com/danielapostolov/The-Mystic-Library.git
     ```
  
-2. **Install the dependencies:**
+### **Install the dependencies:**
  
     For npm:
  
