@@ -13,6 +13,7 @@ import BookCreate from './components/book-create/BookCreate';
 import BookCatalog from './components/books-catalog/BooksCatalog';
 import Logout from './components/logout/Logout';
 import BookEdit from './components/book-edit/BookEdit';
+import RouteGuard from './components/common/RouteGuard';
 
 function App() {
 
@@ -25,12 +26,17 @@ function App() {
                         <Route path='/' element={<Home />}></Route>
                         <Route path='/login' element={<Login />}></Route>
                         <Route path='/sign-up' element={<Register />}></Route>
-                        <Route path='/logout' element={<Logout />}></Route>
                         <Route path='/books' element={<BookCatalog />}></Route>
                         <Route path='/about' element={<About />}></Route>
-                        <Route path='/book/create' element={<BookCreate />}></Route>
                         <Route path='/books/:bookId/details' element={<BookDetails />}></Route>
-                        <Route path='/books/:bookId/edit' element={<BookEdit />}></Route>
+
+
+                        <Route element={<RouteGuard/>}>
+                            <Route path='/book/create' element={<BookCreate />}></Route>
+                            <Route path='/books/:bookId/edit' element={<BookEdit />}></Route>
+                            <Route path='/logout' element={<Logout />}></Route>
+                        </Route>
+
                     </Routes>
                 </main>
 

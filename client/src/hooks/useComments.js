@@ -1,6 +1,6 @@
 import commentsAPI from '../api/comments-api';
 
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer} from 'react';
 
 export function useCreateComment() {
     const createHandler = (bookId, comment) => commentsAPI.create(bookId, comment);

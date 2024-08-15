@@ -26,11 +26,11 @@ export default function BookEdit() {
     } = useForm(book, async (values) => {
         const isConfirmed = confirm(`Are you sure you want to update ${book.title} book?`);
         if (isConfirmed) {
-            
+
             await booksAPI.update(bookId, values);
             navigate(`/books/${bookId}/details`)
         }
-    }, { reinitializeForm: true });
+    }, true);
 
 
     return (

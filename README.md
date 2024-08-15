@@ -30,8 +30,10 @@ To get a local copy up and running follow these simple steps:
     git clone https://github.com/danielapostolov/The-Mystic-Library.git
  
 ### **Install the dependencies:**
- 
+   in 1st terminal--->cd client
+   
     npm install
+
  
 ### Start the server (1st terminal)
 
