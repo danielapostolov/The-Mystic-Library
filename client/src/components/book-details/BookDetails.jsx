@@ -114,7 +114,7 @@ export default function BookDetails() {
 
                         {comments?.map((comment) => (
                             <div key={comment._id} className="text-sm text-white">
-                                <p className="font-semibold text-gray-900">{comment.author.email}:</p>
+                                <p className="font-semibold text-white">{comment.author.email}:</p>
                                 <p>{comment.text}</p>
                             </div>
 
